@@ -9,75 +9,160 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon логотип -->
+    <link rel="icon" type="image/x-icon" href="img/logo.jpg">
 </head>
 <body>
     <div class="container">
-        <header>
-            <div class="logo-container">
-                <img src="img/logo.jpg" alt="Логотип hehketzzzmods" class="logo">
-                <h1 class="site-title">hehketzzzmods</h1>
+        <!-- Навигация -->
+        <nav class="main-nav">
+            <div class="nav-left">
+                <img src="img/logo.jpg" alt="Логотип" class="nav-logo">
+                <span class="nav-title">hehketzzzmods</span>
             </div>
-            <p class="tagline">Модификации и полезные ресурсы</p>
-        </header>
+            <div class="nav-tabs">
+                <button class="tab-btn active" data-tab="home">Home</button>
+                <button class="tab-btn" data-tab="downloads">Downloads</button>
+            </div>
+        </nav>
 
-        <main>
-            <section class="content">
-                <h2><i class="fas fa-star"></i> Добро пожаловать!</h2>
-                <p>Это главная страница проекта hehketzzzmods. Здесь вы найдете модификации, полезные скрипты и другие разработки.</p>
-                
-                <div class="features">
-                    <div class="feature-card">
-                        <i class="fas fa-code"></i>
-                        <h3>Качественные моды</h3>
-                        <p>Тщательно протестированные модификации для различных игр и приложений.</p>
+        <!-- Вкладка Home -->
+        <div class="tab-content active" id="home">
+            <header>
+                <div class="logo-container">
+                    <img src="img/logo.jpg" alt="Логотип hehketzzzmods" class="logo">
+                    <h1 class="site-title">hehketzzzmods</h1>
+                </div>
+                <p class="tagline">Модификации и полезные ресурсы</p>
+            </header>
+
+            <main>
+                <section class="content">
+                    <h2><i class="fas fa-star"></i> Добро пожаловать!</h2>
+                    <p>Это главная страница проекта hehketzzzmods. Здесь вы найдете модификации, полезные скрипты и другие разработки.</p>
+                    
+                    <div class="features">
+                        <div class="feature-card">
+                            <i class="fas fa-code"></i>
+                            <h3>Качественные моды</h3>
+                            <p>Тщательно протестированные модификации для различных игр и приложений.</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-tools"></i>
+                            <h3>Полезные инструменты</h3>
+                            <p>Инструменты для упрощения игрового процесса и настройки софта.</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-comments"></i>
+                            <h3>Поддержка</h3>
+                            <p>Оперативная помощь и обратная связь через Telegram.</p>
+                        </div>
                     </div>
-                    <div class="feature-card">
-                        <i class="fas fa-tools"></i>
-                        <h3>Полезные инструменты</h3>
-                        <p>Инструменты для упрощения игрового процесса и настройки софта.</p>
+                </section>
+
+                <div class="telegram-section">
+                    <h2><i class="fab fa-telegram"></i> Связь через Telegram</h2>
+                    <p>Присоединяйтесь к нашему Telegram-каналу, чтобы быть в курсе обновлений, получать новости и задавать вопросы.</p>
+                    
+                    <a href="https://t.me/hehketzzzmods" target="_blank" class="telegram-btn">
+                        <i class="fab fa-telegram"></i> Перейти в Telegram
+                    </a>
+                </div>
+            </main>
+        </div>
+
+        <!-- Вкладка Downloads -->
+        <div class="tab-content" id="downloads">
+            <div class="downloads-header">
+                <h1><i class="fas fa-download"></i> Downloads</h1>
+                <p>Здесь вы можете скачать наши последние разработки и модификации</p>
+            </div>
+
+            <div class="downloads-grid">
+                <div class="download-card">
+                    <div class="download-icon">
+                        <i class="fas fa-gamepad"></i>
                     </div>
-                    <div class="feature-card">
-                        <i class="fas fa-comments"></i>
-                        <h3>Поддержка</h3>
-                        <p>Оперативная помощь и обратная связь через Telegram.</p>
+                    <div class="download-info">
+                        <h3>CS2 Hack (Shit) And Detect</h3>
+                        <p class="download-desc">Модификация для Counter-Strike 2 с расширенным функционалом</p>
+                        <a href="https://github.com/hehketzzz/cs2-hehketzzzmods/releases/download/beta/hehketzzzmodscs2.exe" 
+                           class="download-btn" target="_blank">
+                            <i class="fas fa-download"></i> Скачать
+                        </a>
                     </div>
                 </div>
-            </section>
 
-            <div class="telegram-section">
-                <h2><i class="fab fa-telegram"></i> Связь через Telegram</h2>
-                <p>Присоединяйтесь к нашему Telegram-каналу, чтобы быть в курсе обновлений, получать новости и задавать вопросы.</p>
-                
-                <a href="https://t.me/hehketzzzmods" target="_blank" class="telegram-btn">
-                    <i class="fab fa-telegram"></i> Перейти в Telegram
-                </a>
-                
-                <p class="telegram-note">Нажмите кнопку выше, чтобы перейти прямо в наш канал <strong>@hehketzzzmods</strong></p>
+                <div class="download-card">
+                    <div class="download-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <div class="download-info">
+                        <h3>Standblox 1.0.0</h3>
+                        <p class="download-desc">Обновленная игра тремя разработчиками: 
+                            <a href="https://t.me/hehketzzzmods" target="_blank">@hehketzzzmods</a>, 
+                            <a href="https://t.me/kusadeveloper" target="_blank">@kusadeveloper</a>, 
+                            <a href="https://t.me/H1stor_official" target="_blank">@H1stor_official</a>
+                        </p>
+                        <button class="download-btn coming-soon">
+                            <i class="fas fa-clock"></i> Скоро
+                        </button>
+                    </div>
+                </div>
+
+                <div class="coming-soon-card">
+                    <i class="fas fa-plus-circle"></i>
+                    <h3>Больше загрузок скоро</h3>
+                    <p>Мы активно работаем над новыми проектами</p>
+                </div>
             </div>
-        </main>
 
+            <div class="downloads-notice">
+                <h3><i class="fas fa-exclamation-circle"></i> Важно!</h3>
+                <p>Все файлы проверены на безопасность. Перед использованием рекомендуется отключить антивирус.</p>
+            </div>
+        </div>
+
+        <!-- Подвал -->
         <footer>
-            <p>© 2023 hehketzzzmods. Все права защищены.</p>
             <p class="footer-links">
-                <a href="#"><i class="fab fa-github"></i> GitHub</a> | 
-                <a href="https://t.me/hehketzzzmods"><i class="fab fa-telegram"></i> Telegram</a>
+                <a href="https://github.com/hehketzzzmods" target="_blank"><i class="fab fa-github"></i> GitHub</a> | 
+                <a href="https://t.me/hehketzzzmods" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
             </p>
         </footer>
     </div>
 
     <script>
-        // Анимация для кнопки Telegram
-        document.querySelector('.telegram-btn').addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-3px)';
+        // Переключение вкладок
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Убираем активный класс у всех кнопок и вкладок
+                document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+                
+                // Добавляем активный класс к нажатой кнопке
+                button.classList.add('active');
+                
+                // Показываем соответствующую вкладку
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
         });
         
-        document.querySelector('.telegram-btn').addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
+        // Анимация для кнопок
+        document.querySelectorAll('.download-btn, .telegram-btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px)';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
         });
         
-        // Простая анимация появления карточек при загрузке
+        // Анимация карточек
         document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.feature-card');
+            const cards = document.querySelectorAll('.feature-card, .download-card');
             cards.forEach((card, index) => {
                 setTimeout(() => {
                     card.style.opacity = '1';
