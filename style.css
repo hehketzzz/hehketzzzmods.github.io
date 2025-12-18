@@ -7,30 +7,102 @@
 }
 
 body {
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-    color: #fff;
+    background: linear-gradient(135deg, #0a0a2a 0%, #1a1a4a 100%);
+    color: #4fc3f7; /* Синий текст */
     min-height: 100vh;
     padding: 20px;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 30px;
-    background-color: rgba(255, 255, 255, 0.08);
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(79, 195, 247, 0.1);
 }
 
-/* Шапка */
+/* Навигация */
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    margin-bottom: 30px;
+    border-bottom: 2px solid rgba(79, 195, 247, 0.2);
+    flex-wrap: wrap;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #4fc3f7;
+}
+
+.nav-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #4fc3f7;
+    white-space: nowrap;
+}
+
+.nav-tabs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    background: rgba(79, 195, 247, 0.1);
+    border: none;
+    color: #4fc3f7;
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.tab-btn:hover {
+    background: rgba(79, 195, 247, 0.2);
+    border-color: #4fc3f7;
+}
+
+.tab-btn.active {
+    background: rgba(79, 195, 247, 0.25);
+    border-color: #4fc3f7;
+    box-shadow: 0 0 15px rgba(79, 195, 247, 0.3);
+}
+
+/* Содержимое вкладок */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Шапка (только для Home) */
 header {
     text-align: center;
-    margin-bottom: 50px;
-    padding-bottom: 30px;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(79, 195, 247, 0.2);
 }
 
 .logo-container {
@@ -47,7 +119,7 @@ header {
     height: 100px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid rgba(255, 255, 255, 0.2);
+    border: 4px solid rgba(79, 195, 247, 0.3);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease;
 }
@@ -57,99 +129,105 @@ header {
 }
 
 .site-title {
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: 700;
-    background: linear-gradient(90deg, #ff7e5f, #feb47b);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    color: #4fc3f7;
+    text-shadow: 0 0 10px rgba(79, 195, 247, 0.5);
     letter-spacing: 1px;
 }
 
 .tagline {
-    font-size: 1.3rem;
-    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.2rem;
+    color: #81d4fa; /* Более светлый синий */
     font-weight: 400;
     max-width: 600px;
     margin: 0 auto;
 }
 
 /* Основной контент */
-.content {
-    margin-bottom: 50px;
+.content, .downloads-header {
+    margin-bottom: 40px;
 }
 
-.content h2, .telegram-section h2 {
-    font-size: 2.2rem;
-    margin-bottom: 20px;
-    color: #fff;
+.content h2, .downloads-header h1, .telegram-section h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #4fc3f7;
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.content h2 i, .telegram-section h2 i {
-    color: #ffcc00;
+/* Иконки синие */
+.content h2 i, 
+.downloads-header h1 i, 
+.telegram-section h2 i,
+.feature-card i,
+.download-icon i,
+.coming-soon-card i,
+.downloads-notice i {
+    color: #4fc3f7 !important;
 }
 
-.content p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    color: rgba(255, 255, 255, 0.9);
-    max-width: 800px;
+.content p, .downloads-header p, .telegram-section p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    color: #81d4fa;
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 /* Карточки с фичами */
 .features {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
-    margin-top: 40px;
+    gap: 25px;
+    margin-top: 30px;
     justify-content: center;
 }
 
 .feature-card {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(79, 195, 247, 0.08);
     border-radius: 15px;
-    padding: 30px;
+    padding: 25px;
     width: 100%;
     max-width: 350px;
     text-align: center;
     transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(79, 195, 247, 0.1);
     opacity: 0;
     transform: translateY(20px);
 }
 
 .feature-card:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-10px);
+    background: rgba(79, 195, 247, 0.15);
+    transform: translateY(-8px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .feature-card i {
-    font-size: 3rem;
-    color: #9d4edd;
-    margin-bottom: 20px;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
 }
 
 .feature-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    color: #fff;
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    color: #4fc3f7;
 }
 
 .feature-card p {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    color: #81d4fa;
     margin-bottom: 0;
 }
 
 /* Секция Telegram */
 .telegram-section {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(79, 195, 247, 0.08);
     border-radius: 15px;
-    padding: 40px;
+    padding: 30px;
     text-align: center;
     margin: 40px 0;
     border-left: 5px solid #0088cc;
@@ -163,11 +241,11 @@ header {
     background: linear-gradient(90deg, #0088cc, #00aced);
     color: white;
     text-decoration: none;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 600;
-    padding: 18px 35px;
+    padding: 15px 30px;
     border-radius: 50px;
-    margin: 30px 0;
+    margin: 20px 0;
     transition: all 0.3s ease;
     box-shadow: 0 8px 20px rgba(0, 136, 204, 0.3);
     border: none;
@@ -180,58 +258,220 @@ header {
     box-shadow: 0 12px 25px rgba(0, 136, 204, 0.4);
 }
 
-.telegram-btn i {
-    font-size: 1.6rem;
+/* Downloads вкладка */
+.downloads-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 25px;
+    margin: 30px 0;
 }
 
-.telegram-note {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.7);
-    margin-top: 20px;
+.download-card {
+    background: rgba(79, 195, 247, 0.08);
+    border-radius: 15px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid rgba(79, 195, 247, 0.1);
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.download-card:hover {
+    background: rgba(79, 195, 247, 0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.download-icon {
+    background: rgba(79, 195, 247, 0.15);
+    border-radius: 12px;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.download-icon i {
+    font-size: 2.2rem;
+}
+
+.download-info {
+    flex-grow: 1;
+}
+
+.download-info h3 {
+    font-size: 1.5rem;
+    color: #4fc3f7;
+    margin-bottom: 8px;
+}
+
+.download-desc {
+    font-size: 0.95rem;
+    color: #81d4fa;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.download-desc a {
+    color: #29b6f6;
+    text-decoration: none;
+}
+
+.download-desc a:hover {
+    text-decoration: underline;
+}
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(90deg, #1565c0, #1e88e5);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.download-btn:hover {
+    background: linear-gradient(90deg, #0d47a1, #1976d2);
+}
+
+.download-btn.coming-soon {
+    background: linear-gradient(90deg, #455a64, #607d8b);
+    cursor: not-allowed;
+}
+
+.coming-soon-card {
+    background: rgba(79, 195, 247, 0.05);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    border: 2px dashed rgba(79, 195, 247, 0.3);
+    grid-column: 1 / -1;
+}
+
+.coming-soon-card i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.coming-soon-card h3 {
+    font-size: 1.5rem;
+    color: #4fc3f7;
+    margin-bottom: 10px;
+}
+
+.coming-soon-card p {
+    color: #81d4fa;
+    margin-bottom: 0;
+}
+
+.downloads-notice {
+    background: rgba(255, 193, 7, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 30px;
+    border-left: 5px solid #ffb300;
+}
+
+.downloads-notice h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ffb300;
+    margin-bottom: 10px;
+}
+
+.downloads-notice p {
+    color: #ffd54f;
+    margin-bottom: 0;
 }
 
 /* Подвал */
 footer {
     text-align: center;
-    margin-top: 60px;
-    padding-top: 30px;
-    border-top: 2px solid rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 1rem;
-}
-
-.footer-links {
-    margin-top: 15px;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 2px solid rgba(79, 195, 247, 0.2);
 }
 
 .footer-links a {
-    color: #9d4edd;
+    color: #4fc3f7;
     text-decoration: none;
     margin: 0 10px;
     transition: color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .footer-links a:hover {
-    color: #ff7e5f;
+    color: #29b6f6;
     text-decoration: underline;
 }
 
 /* Адаптивность */
 @media (max-width: 768px) {
     .container {
-        padding: 20px;
+        padding: 15px;
+        margin: 10px;
+    }
+    
+    .main-nav {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+    
+    .nav-tabs {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .tab-btn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
     }
     
     .site-title {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
     
-    .content h2, .telegram-section h2 {
-        font-size: 1.8rem;
+    .content h2, .downloads-header h1, .telegram-section h2 {
+        font-size: 1.6rem;
     }
     
-    .feature-card {
+    .content p, .downloads-header p, .telegram-section p {
+        font-size: 1rem;
+    }
+    
+    .features, .downloads-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .feature-card, .download-card {
         max-width: 100%;
+    }
+    
+    .download-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .download-icon {
+        width: 60px;
+        height: 60px;
     }
     
     .logo-container {
@@ -240,7 +480,31 @@ footer {
     }
     
     .telegram-btn {
-        font-size: 1.2rem;
-        padding: 15px 25px;
+        font-size: 1.1rem;
+        padding: 12px 25px;
+    }
+    
+    /* Фикс для текста на мобильных */
+    body, .container, .content p, .download-desc, .tagline {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-title {
+        font-size: 1.8rem;
+    }
+    
+    .nav-title {
+        font-size: 1.4rem;
+    }
+    
+    .tab-btn {
+        padding: 6px 12px;
+        font-size: 0.85rem;
     }
 }
