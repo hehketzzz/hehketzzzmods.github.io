@@ -12,12 +12,6 @@
     <link rel="icon" type="image/x-icon" href="img/logo.jpg">
 </head>
 <body>
-    <!-- Полноэкранное лого -->
-    <div class="full-logo">
-        <img src="img/logo.jpg" alt="Логотип hehketzzzmods" class="logo-full">
-        <div class="logo-overlay"></div>
-    </div>
-
     <div class="container">
         <!-- Навигация -->
         <nav class="main-nav">
@@ -32,7 +26,15 @@
         </nav>
 
         <!-- Вкладка Home -->
-        <div class="tab-content active" id="home">
+        <div class="tab-content active" id="home-content">
+            <header class="home-header">
+                <div class="logo-container">
+                    <img src="img/logo.jpg" alt="Логотип hehketzzzmods" class="logo">
+                    <h1 class="site-title">hehketzzzmods</h1>
+                </div>
+                <p class="tagline">Модификации и полезные ресурсы</p>
+            </header>
+
             <main>
                 <section class="content">
                     <h2><i class="fas fa-star"></i> Добро пожаловать!</h2>
@@ -69,7 +71,7 @@
         </div>
 
         <!-- Вкладка Downloads -->
-        <div class="tab-content" id="downloads">
+        <div class="tab-content" id="downloads-content">
             <div class="downloads-header">
                 <h1><i class="fas fa-download"></i> Downloads</h1>
                 <p>Здесь вы можете скачать наши последние разработки и модификации</p>
@@ -113,11 +115,6 @@
                     <p>Мы активно работаем над новыми проектами</p>
                 </div>
             </div>
-
-            <div class="downloads-notice">
-                <h3><i class="fas fa-exclamation-circle"></i> Важно!</h3>
-                <p>Все файлы проверены на безопасность. Перед использованием рекомендуется отключить антивирус.</p>
-            </div>
         </div>
 
         <!-- Подвал -->
@@ -130,33 +127,46 @@
     </div>
 
     <script>
-        // Исправленный скрипт для переключения вкладок
+        // Переключение вкладок
         document.addEventListener('DOMContentLoaded', function() {
             const tabButtons = document.querySelectorAll('.tab-btn');
             const tabContents = document.querySelectorAll('.tab-content');
             
+            // Функция переключения вкладок
+            function switchTab(tabName) {
+                // Скрываем все вкладки
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Убираем активный класс со всех кнопок
+                tabButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Показываем нужную вкладку
+                const activeTab = document.getElementById(tabName + '-content');
+                if (activeTab) {
+                    activeTab.classList.add('active');
+                }
+                
+                // Активируем нужную кнопку
+                const activeButton = document.querySelector(`[data-tab="${tabName}"]`);
+                if (activeButton) {
+                    activeButton.classList.add('active');
+                }
+            }
+            
+            // Назначаем обработчики на кнопки
             tabButtons.forEach(button => {
                 button.addEventListener('click', function() {
-                    // Снимаем активный класс со всех кнопок
-                    tabButtons.forEach(btn => btn.classList.remove('active'));
-                    
-                    // Добавляем активный класс к нажатой кнопке
-                    this.classList.add('active');
-                    
-                    // Скрываем все вкладки
-                    tabContents.forEach(content => content.classList.remove('active'));
-                    
-                    // Показываем нужную вкладку
-                    const tabId = this.getAttribute('data-tab');
-                    const activeTab = document.getElementById(tabId);
-                    if (activeTab) {
-                        activeTab.classList.add('active');
-                    }
+                    const tabName = this.getAttribute('data-tab');
+                    switchTab(tabName);
                 });
             });
             
-            // Инициализация первой вкладки
-            document.querySelector('.tab-btn.active').click();
+            // Инициализируем первую вкладку
+            switchTab('home');
             
             // Анимация для кнопок
             document.querySelectorAll('.download-btn, .telegram-btn').forEach(btn => {
