@@ -1,11 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <meta charset="utf-8">
-    <title>Мой сайт</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hehketzzzmods</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <h1>Привет! Мой сайт работает!</h1>
-    <p>Этот сайт хостится на GitHub Pages.</p>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <img src="img/logo.jpg" alt="Логотип hehketzzzmods" class="logo">
+                <h1 class="site-title">hehketzzzmods</h1>
+            </div>
+            <p class="tagline">Модификации и полезные ресурсы</p>
+        </header>
+
+        <main>
+            <section class="content">
+                <h2><i class="fas fa-star"></i> Добро пожаловать!</h2>
+                <p>Это главная страница проекта hehketzzzmods. Здесь вы найдете модификации, полезные скрипты и другие разработки.</p>
+                
+                <div class="features">
+                    <div class="feature-card">
+                        <i class="fas fa-code"></i>
+                        <h3>Качественные моды</h3>
+                        <p>Тщательно протестированные модификации для различных игр и приложений.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-tools"></i>
+                        <h3>Полезные инструменты</h3>
+                        <p>Инструменты для упрощения игрового процесса и настройки софта.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-comments"></i>
+                        <h3>Поддержка</h3>
+                        <p>Оперативная помощь и обратная связь через Telegram.</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="telegram-section">
+                <h2><i class="fab fa-telegram"></i> Связь через Telegram</h2>
+                <p>Присоединяйтесь к нашему Telegram-каналу, чтобы быть в курсе обновлений, получать новости и задавать вопросы.</p>
+                
+                <a href="https://t.me/hehketzzzmods" target="_blank" class="telegram-btn">
+                    <i class="fab fa-telegram"></i> Перейти в Telegram
+                </a>
+                
+                <p class="telegram-note">Нажмите кнопку выше, чтобы перейти прямо в наш канал <strong>@hehketzzzmods</strong></p>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2023 hehketzzzmods. Все права защищены.</p>
+            <p class="footer-links">
+                <a href="#"><i class="fab fa-github"></i> GitHub</a> | 
+                <a href="https://t.me/hehketzzzmods"><i class="fab fa-telegram"></i> Telegram</a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Анимация для кнопки Telegram
+        document.querySelector('.telegram-btn').addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-3px)';
+        });
+        
+        document.querySelector('.telegram-btn').addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+        
+        // Простая анимация появления карточек при загрузке
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.feature-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 200 * index);
+            });
+        });
+    </script>
 </body>
 </html>
