@@ -9,10 +9,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Favicon логотип -->
     <link rel="icon" type="image/x-icon" href="img/logo.jpg">
 </head>
 <body>
+    <!-- Полноэкранное лого -->
+    <div class="full-logo">
+        <img src="img/logo.jpg" alt="Логотип hehketzzzmods" class="logo-full">
+        <div class="logo-overlay"></div>
+    </div>
+
     <div class="container">
         <!-- Навигация -->
         <nav class="main-nav">
@@ -28,14 +33,6 @@
 
         <!-- Вкладка Home -->
         <div class="tab-content active" id="home">
-            <header>
-                <div class="logo-container">
-                    <img src="img/logo.jpg" alt="Логотип hehketzzzmods" class="logo">
-                    <h1 class="site-title">hehketzzzmods</h1>
-                </div>
-                <p class="tagline">Модификации и полезные ресурсы</p>
-            </header>
-
             <main>
                 <section class="content">
                     <h2><i class="fas fa-star"></i> Добро пожаловать!</h2>
@@ -133,35 +130,46 @@
     </div>
 
     <script>
-        // Переключение вкладок
-        document.querySelectorAll('.tab-btn').forEach(button => {
-            button.addEventListener('click', () => {
-                // Убираем активный класс у всех кнопок и вкладок
-                document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-                
-                // Добавляем активный класс к нажатой кнопке
-                button.classList.add('active');
-                
-                // Показываем соответствующую вкладку
-                const tabId = button.getAttribute('data-tab');
-                document.getElementById(tabId).classList.add('active');
-            });
-        });
-        
-        // Анимация для кнопок
-        document.querySelectorAll('.download-btn, .telegram-btn').forEach(btn => {
-            btn.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-3px)';
+        // Исправленный скрипт для переключения вкладок
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Снимаем активный класс со всех кнопок
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Добавляем активный класс к нажатой кнопке
+                    this.classList.add('active');
+                    
+                    // Скрываем все вкладки
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Показываем нужную вкладку
+                    const tabId = this.getAttribute('data-tab');
+                    const activeTab = document.getElementById(tabId);
+                    if (activeTab) {
+                        activeTab.classList.add('active');
+                    }
+                });
             });
             
-            btn.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
+            // Инициализация первой вкладки
+            document.querySelector('.tab-btn.active').click();
+            
+            // Анимация для кнопок
+            document.querySelectorAll('.download-btn, .telegram-btn').forEach(btn => {
+                btn.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px)';
+                });
+                
+                btn.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
             });
-        });
-        
-        // Анимация карточек
-        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Анимация карточек
             const cards = document.querySelectorAll('.feature-card, .download-card');
             cards.forEach((card, index) => {
                 setTimeout(() => {
